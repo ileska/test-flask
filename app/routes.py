@@ -47,6 +47,7 @@ def logout():
 
 @app.route('/')
 @app.route('/index')
+@app.route('/api/v1/todo')
 @login_required
 def index():
 	data = json.loads(requests.get('https://jsonplaceholder.typicode.com/todos').content) #получаем список
