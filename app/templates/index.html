@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+	<h1>Привет, {{ current_user.username }}!</h1>
+	<h2>Ваш id: {{ current_user.id }}!</h2>
+
+    {% for todo in todos %}
+        <div style="border: 1px solid #000; margin-bottom: 15px; padding: 5px;">
+        	<p>id: {{ todo.id }}</p>
+        	<p>completed: {{ todo.completed }}</p>
+        	<p>user_id: {{ todo.user_id }}</p>
+        	<p>title: {{ todo.title }}</p>
+        </div>
+        {% endfor %}
+{% endblock %}

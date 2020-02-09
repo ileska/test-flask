@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>PROXY-TEST</title>
+    </head>
+    <body>
+        <a href="{{ url_for('index') }}">Главная</a>
+        {% if current_user.is_anonymous %}
+        <a href="{{ url_for('login') }}">Логин</a>
+        <a href="{{ url_for('register') }}">Регистрация</a>
+        {% else %}
+        <a href="{{ url_for('logout') }}">Выход</a>
+        {% endif %}
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>
